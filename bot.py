@@ -29,7 +29,7 @@ class Bot:
             reply_markup = InlineKeyboardMarkup(constants.keyboard)
             bot.sendMessage(chat_id=query.message.chat.id, text=text, reply_markup=reply_markup)
 
-        if option.startswith('Список'):
+        if option. startswith('Список'):
             bot.sendMessage(chat_id=query.message.chat.id, text=emojize(experts, use_aliases=True),
                             reply_markup=reply_markup)
 
