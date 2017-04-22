@@ -1,11 +1,13 @@
+import logging
+
+import requests
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 import constants
+from constants import TIMING_URL
 from local import BOT_TOKEN_SECRET
-from timing import timing
 from experts import experts
 from emoji import emojize
-import logging
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
@@ -26,6 +28,8 @@ class Bot:
         reply_markup = InlineKeyboardMarkup(keyboard_back)
 
         if option.startswith('Расписание'):
+            res = requests.get(TIMING_URL)
+            timing = res.text
             bot.sendMessage(chat_id=query.message.chat.id, text=timing, reply_markup=reply_markup)
 
         if option == 'back':
