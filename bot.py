@@ -5,6 +5,9 @@ from local import BOT_TOKEN_SECRET
 from timing import timing
 from experts import experts
 from emoji import emojize
+import logging
+
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 class Bot:
     def __init__(self):
