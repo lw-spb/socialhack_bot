@@ -1,13 +1,14 @@
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 import constants
+from local import BOT_TOKEN_SECRET
 from timing import timing
 from experts import experts
 from emoji import emojize
 
 class Bot:
     def __init__(self):
-        self.updater = Updater(token=constants.BOT_HTTP_API)
+        self.updater = Updater(token=BOT_TOKEN_SECRET)
         self.dispatcher = self.updater.dispatcher
 
     def start(self, bot, update):
